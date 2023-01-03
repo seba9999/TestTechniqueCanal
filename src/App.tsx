@@ -76,8 +76,8 @@ const App = () => {
           </Dimmer>
         ) : (
           <>
-            {results.map((film) => (
-              <FilmCard film={film} />
+            {results.map((film, index) => (
+              <FilmCard film={film} key={index} />
             ))}
           </>
         )}

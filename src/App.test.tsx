@@ -43,6 +43,10 @@ test("Fill in the search input and trigger search", async () => {
 
   fireEvent.click(searchButton);
 
+  const loader = screen.getByText(/Loading/i);
+  expect(loader).toBeInTheDocument();
+  await waitFor(() => expect(loader).not.toBeInTheDocument());
+
   const title = screen.getByText(/Fake title/i);
-  await waitFor(() => expect(title).toBeInTheDocument());
+  expect(title).toBeInTheDocument();
 });
